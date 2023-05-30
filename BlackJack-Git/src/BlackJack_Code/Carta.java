@@ -21,6 +21,7 @@ public class Carta {
         else if(idCarta.toLowerCase().equals("k")){
             return 10;
         }
+        //Convertendo o número de ID da carta para int e retornando como valor.
         return Integer.parseInt(idCarta);
     }
 
