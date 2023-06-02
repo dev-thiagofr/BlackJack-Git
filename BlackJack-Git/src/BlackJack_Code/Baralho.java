@@ -8,7 +8,7 @@ public class Baralho {
     private List<Carta> baralhoDeCartas;
     
     public void criarBaralho(){
-        String[] naipes={"Copas","Ouros","Damas","Paus"};
+        String[] naipes={"Copas","Ouros","Espadas","Paus"};
         String[] ids={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
         baralhoDeCartas = new ArrayList<>();
         
