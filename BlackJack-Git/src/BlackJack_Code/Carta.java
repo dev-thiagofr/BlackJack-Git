@@ -25,6 +25,10 @@ public class Carta {
         return Integer.parseInt(idCarta);
     }
 
+    public String toString() {
+        return naipeCarta + idCarta;
+    }
+    
     public String getNaipeCarta() {
         return naipeCarta;
     }

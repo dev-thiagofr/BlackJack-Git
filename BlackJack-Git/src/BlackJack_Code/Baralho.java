@@ -2,11 +2,12 @@ package BlackJack_Code;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Baralho {
     //Criação da lista de objetos com os baralhos.
     private List<Carta> baralhoDeCartas;
-    
+
     public void criarBaralho(){
         String[] naipes={"Copas","Ouros","Espadas","Paus"};
         String[] ids={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
@@ -25,7 +26,13 @@ public class Baralho {
         }
         
     }
-
+    //Não sei como embaralhar ainda
+    public void embaralhar(){
+        
+    }
+    public Carta compraCarta() {
+        return baralhoDeCartas.remove(baralhoDeCartas.size()-1);
+    }
     public List<Carta> getBaralhoDeCartas() {
         return baralhoDeCartas;
     }
@@ -33,6 +40,9 @@ public class Baralho {
     public void setBaralhoDeCartas(List<Carta> baralhoDeCartas) {
         this.baralhoDeCartas = baralhoDeCartas;
     }
+
+
+
     
     
     
