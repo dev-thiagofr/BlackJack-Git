@@ -33,6 +33,7 @@ public class TelaLogin extends javax.swing.JFrame {
         imgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusableWindowState(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -67,7 +68,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnExit.setPreferredSize(new java.awt.Dimension(150, 65));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(763, 485, -1, -1));
 
-        imgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/StartScreenF.png"))); // NOI18N
         imgLabel.setToolTipText("");
         jPanel1.add(imgLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 1280, 720));
 
