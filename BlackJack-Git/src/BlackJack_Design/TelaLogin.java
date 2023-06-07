@@ -68,6 +68,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnExit.setPreferredSize(new java.awt.Dimension(150, 65));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(763, 485, -1, -1));
 
+        imgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BlackJack_Design/StartScreenF.png"))); // NOI18N
         imgLabel.setToolTipText("");
         jPanel1.add(imgLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 1280, 720));
 
