@@ -29,12 +29,12 @@ public class Baralho {
     }
     //Não sei como embaralhar ainda
     public void embaralhar(){
-        
+        Collections.shuffle(baralhoDeCartas);
     }
     public Carta compraCarta() {
         return baralhoDeCartas.remove(baralhoDeCartas.size()-1);
     }
-    public List<Carta> getBaralhoDeCartas() {
+     public List<Carta> getBaralhoDeCartas() {
         return baralhoDeCartas;
     }
 

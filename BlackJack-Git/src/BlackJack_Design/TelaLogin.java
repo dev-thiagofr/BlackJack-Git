@@ -44,6 +44,11 @@ public class TelaLogin extends javax.swing.JFrame {
         btnStart.setMaximumSize(new java.awt.Dimension(150, 65));
         btnStart.setMinimumSize(new java.awt.Dimension(150, 65));
         btnStart.setPreferredSize(new java.awt.Dimension(150, 65));
+        btnStart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnStartMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 485, -1, -1));
 
         btnLoad.setBackground(new java.awt.Color(178, 0, 0));
@@ -79,6 +84,10 @@ public class TelaLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStartMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStartMouseClicked
 
     /**
      * @param args the command line arguments
