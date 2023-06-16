@@ -9,19 +9,20 @@ public class BlackJack {
     
     public BlackJack(){
         baralhodoJogo = new Baralho();
-        baralhodoJogo.embaralhar();
+        baralhodoJogo.embaralhando();
         
         dealer = new Jogadores();
         player = new Jogadores();
         
     }
     public void Jogo(){
+        System.out.println("Bem vindo ao BlackJack");
         //Formação da mão inicial;
-        player.adicionarCarta(baralhodoJogo.compraCarta());
-        dealer.adicionarCarta(baralhodoJogo.compraCarta());
+        player.adicionarCarta(baralhodoJogo.comprar());
+        dealer.adicionarCarta(baralhodoJogo.comprar());
         
-        player.adicionarCarta(baralhodoJogo.compraCarta());
-        dealer.adicionarCarta(baralhodoJogo.compraCarta());
+        player.adicionarCarta(baralhodoJogo.comprar());
+        dealer.adicionarCarta(baralhodoJogo.comprar());
         
         turnoJogador();
         turnoDealer();
@@ -31,36 +32,36 @@ public class BlackJack {
     
     private void turnoJogador(){
         Scanner tlc = new Scanner(System.in);
-        boolean parar =true;
-        while(parar){
-            System.out.println("Mão do jogador:"+player.toString());
+        boolean turnoM=true;
+        while(turnoM){
+            System.out.println("Mão do jogador:"+player);
             System.out.println("Valor da mão:"+player.valorDaMão());
             
             if(player.valorDaMão()>21){
                 System.out.println("Estourou");
-                parar=false;
+                turnoM=false;
             }
+            
             System.out.println("1-Puxar / 2- Parar");
             int verifica = tlc.nextInt();
             if(verifica==1){
-                player.adicionarCarta(baralhodoJogo.compraCarta());
+                player.adicionarCarta(baralhodoJogo.comprar());
             }
             else{
-                parar=false;
+                turnoM=false;
             }
         }
-        
-        
-    }
+   }
+    
     private void turnoDealer(){
         boolean contagem=true;
         while(contagem){
             if(dealer.valorDaMão()<17){
-                dealer.adicionarCarta(baralhodoJogo.compraCarta());
+                dealer.adicionarCarta(baralhodoJogo.comprar());
             }
         }
         
-        System.out.println("Mão do Dealer: "+dealer.toString());
+        System.out.println("Mão do Dealer: "+dealer);
         System.out.println("Valor: "+dealer.valorDaMão());
     }
     

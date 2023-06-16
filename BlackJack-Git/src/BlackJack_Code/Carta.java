@@ -1,49 +1,39 @@
 package BlackJack_Code;
 public class Carta {
-    private String naipeCarta;
+    
     private String idCarta;
+    private String naipeCarta;
 
-    public Carta(String naipeCarta, String idCarta) {
-        this.naipeCarta = naipeCarta;
+    public Carta(String idCarta, String naipeCarta) {
         this.idCarta = idCarta;
+        this.naipeCarta = naipeCarta;
     }
+
+   
     
     public int valorDaCarta(){
-        if(idCarta.toLowerCase().equals("a")){
+        if(idCarta.equals("a")){
             return 11;
         }
-        else if(idCarta.toLowerCase().equals("j")){
+        else if(idCarta.equals("j")){
             return 10;
         }
-        else if(idCarta.toLowerCase().equals("q")){
+        else if(idCarta.equals("q")){
             return 10;
         }
-        else if(idCarta.toLowerCase().equals("k")){
+        else if(idCarta.equals("k")){
             return 10;
         }
         //Convertendo o número de ID da carta para int e retornando como valor.
         return Integer.parseInt(idCarta);
     }
 
+    @Override
     public String toString() {
-        return naipeCarta + idCarta;
+        return idCarta + naipeCarta;
     }
     
-    public String getNaipeCarta() {
-        return naipeCarta;
-    }
 
-    public String getIdCarta() {
-        return idCarta;
-    }
-
-    public void setNaipeCarta(String naipeCarta) {
-        this.naipeCarta = naipeCarta;
-    }
-
-    public void setIdCarta(String idCarta) {
-        this.idCarta = idCarta;
-    }
     
     
     
