@@ -32,33 +32,37 @@ public class BlackJack {
     
     private void turnoJogador(){
         Scanner tlc = new Scanner(System.in);
-        boolean turnoM=true;
-        while(turnoM){
+        
+        while(true){
             System.out.println("Mão do jogador:"+player);
             System.out.println("Valor da mão:"+player.valorDaMão());
             
-            if(player.valorDaMão()>21){
-                System.out.println("Estourou");
-                turnoM=false;
-            }
+            System.out.println("Comprar ou parar?");
+            String escolha =tlc.next();
+            char carac = escolha.charAt(0);
+            switch(carac){
+                case'c':
+                    player.adicionarCarta(baralhodoJogo.comprar());
+                break;
+                
+                case'p':
+                return;
+        }
             
-            System.out.println("1-Puxar / 2- Parar");
-            int verifica = tlc.nextInt();
-            if(verifica==1){
-                player.adicionarCarta(baralhodoJogo.comprar());
-            }
-            else{
-                turnoM=false;
-            }
+        if(player.valorDaMão()>21){
+            resultados();
+            return;
+           
+        }    
+            
         }
    }
     
     private void turnoDealer(){
-        boolean contagem=true;
-        while(contagem){
-            if(dealer.valorDaMão()<17){
-                dealer.adicionarCarta(baralhodoJogo.comprar());
-            }
+        
+        while(dealer.valorDaMão()<17){
+            dealer.adicionarCarta(baralhodoJogo.comprar());
+            //if(dealer.valorDaMão()==player.valorDaMão()){}
         }
         
         System.out.println("Mão do Dealer: "+dealer);

@@ -25,9 +25,9 @@ public class Baralho {
         Random numR = new Random();
         for(int i= cartas.size() - 1; i>0;i--){
             int j= numR.nextInt(i+1);
-            Carta temp = cartas.get(i);
+            Carta cartaTemporaria = cartas.get(i);
             cartas.set(i, cartas.get(j));
-            cartas.set(j, temp);
+            cartas.set(j, cartaTemporaria);
         }
     }
     
