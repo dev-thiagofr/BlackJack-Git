@@ -37,9 +37,17 @@ public class BlackJack {
             System.out.println("Mão do jogador:"+player);
             System.out.println("Valor da mão:"+player.valorDaMão());
             
+            if(player.valorDaMão()>21){
+                resultados();
+                return;
+           
+            } 
+            
             System.out.println("Comprar ou parar?");
             String escolha =tlc.next();
             char carac = escolha.charAt(0);
+            
+            
             switch(carac){
                 case'c':
                     player.adicionarCarta(baralhodoJogo.comprar());
@@ -49,11 +57,7 @@ public class BlackJack {
                 return;
         }
             
-        if(player.valorDaMão()>21){
-            resultados();
-            return;
-           
-        }    
+   
             
         }
    }
