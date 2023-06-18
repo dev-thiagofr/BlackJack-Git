@@ -4,6 +4,8 @@
  */
 package BlackJack_Design;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Arthu
@@ -13,6 +15,9 @@ public class index extends javax.swing.JFrame {
    
     public index() {
         initComponents();
+        
+        ImageIcon icone1= new ImageIcon("Imagens/icon_blackjack.jpg");
+        setIconImage(icone1.getImage());
     }
 
 
@@ -84,6 +89,7 @@ public class index extends javax.swing.JFrame {
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 130, -1));
 
         img_tela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/StartScreenF_resized.png"))); // NOI18N
+        img_tela.setInheritsPopupMenu(false);
         jPanel1.add(img_tela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
