@@ -8,10 +8,10 @@ package BlackJack_Design;
  *
  * @author Arthu
  */
-public class TelaLogin extends javax.swing.JFrame {
+public class index extends javax.swing.JFrame {
 
    
-    public TelaLogin() {
+    public index() {
         initComponents();
     }
 
@@ -24,11 +24,12 @@ public class TelaLogin extends javax.swing.JFrame {
         btnStart = new javax.swing.JButton();
         btnLoad = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
-        imgLabel = new javax.swing.JLabel();
+        img_tela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusableWindowState(false);
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(620, 480));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnStart.setBackground(new java.awt.Color(178, 0, 0));
@@ -44,7 +45,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnStartMouseClicked(evt);
             }
         });
-        jPanel1.add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 485, -1, -1));
+        btnStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
 
         btnLoad.setBackground(new java.awt.Color(178, 0, 0));
         btnLoad.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -57,7 +63,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnLoadMouseClicked(evt);
             }
         });
-        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 485, -1, -1));
+        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(178, 0, 0));
         btnExit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -70,21 +76,29 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnExitMouseClicked(evt);
             }
         });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(763, 485, -1, -1));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 130, -1));
 
-        imgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BlackJack_Design/StartScreenF.png"))); // NOI18N
-        imgLabel.setToolTipText("");
-        jPanel1.add(imgLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 1280, 720));
+        img_tela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/StartScreenF_resized.png"))); // NOI18N
+        jPanel1.add(img_tela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 108, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,6 +119,14 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         //Inserir o código para tela fechar
     }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStartActionPerformed
     
    
     public static void main(String args[]) {
@@ -121,20 +143,21 @@ public class TelaLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                new index().setVisible(true);
             }
         });
     }
@@ -143,7 +166,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLoad;
     private javax.swing.JButton btnStart;
-    private javax.swing.JLabel imgLabel;
+    private javax.swing.JLabel img_tela;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,7 +40,7 @@ public class Jogadores {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         for(Carta carta:cartas){
-            sb.append(carta.toString()).append(",");
+            sb.append(carta.toString());
         }
         return sb.toString();
     }
