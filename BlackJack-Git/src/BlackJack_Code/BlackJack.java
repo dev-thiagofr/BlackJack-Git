@@ -6,6 +6,7 @@ public class BlackJack {
     private Baralho baralhodoJogo;
     private Jogadores dealer;
     private Jogadores player;
+    private Fichas ficha_jogo;
     
     public BlackJack(){
         baralhodoJogo = new Baralho();
@@ -13,11 +14,15 @@ public class BlackJack {
         
         dealer = new Jogadores();
         player = new Jogadores();
+        ficha_jogo = new Fichas(200);
         
     }
+    
     public void Jogo(){
         System.out.println("Bem vindo ao BlackJack");
         //Formação da mão inicial;
+        
+        
         player.adicionarCarta(baralhodoJogo.comprar());
         dealer.adicionarCarta(baralhodoJogo.comprar());
         
@@ -38,7 +43,7 @@ public class BlackJack {
             System.out.println("Valor da mão:"+player.valorDaMão());
             
             if(player.valorDaMão()>21){
-                resultados();
+                System.out.println("Estourou!");
                 return;
            
             } 
@@ -64,7 +69,7 @@ public class BlackJack {
     
     private void turnoDealer(){
         
-        while(dealer.valorDaMão()<17){
+        while(dealer.valorDaMão()<player.valorDaMão()){
             dealer.adicionarCarta(baralhodoJogo.comprar());
             //if(dealer.valorDaMão()==player.valorDaMão()){}
         }
@@ -78,19 +83,28 @@ public class BlackJack {
         int dPontos = dealer.valorDaMão();
         
         if(pPontos>21){
+            ficha_jogo.qtn_perdeu();
             System.out.println("Você estourou , o dealer ganha");
+            System.out.println(ficha_jogo.toString());
         }
         else if(dPontos>21){
+            ficha_jogo.qtn_venceu();
             System.out.println("Que sorte! O dealer estourou , voce ganhou!");
+            System.out.println(ficha_jogo.toString());
         }
         else if(dPontos>pPontos){
+            ficha_jogo.qtn_perdeu();
             System.out.println("O dealer ganhou!");
+            System.out.println(ficha_jogo.toString());
         }
         else if(dPontos<pPontos){
+            ficha_jogo.qtn_venceu();
             System.out.println("Você venceu!");
+            System.out.println(ficha_jogo.toString());
         }
         else{
             System.out.println("Empate.");
+            System.out.println(ficha_jogo.toString());
         }
         
     }

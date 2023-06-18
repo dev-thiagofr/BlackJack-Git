@@ -45,7 +45,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         dealer_virada.setText("jLabel1");
 
         dealer_carta1.setBackground(new java.awt.Color(102, 102, 0));
-        dealer_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/c2.png"))); // NOI18N
+        dealer_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2c.png"))); // NOI18N
         dealer_carta1.setText("jLabel1");
 
         dealer_carta3.setText("carta3");
