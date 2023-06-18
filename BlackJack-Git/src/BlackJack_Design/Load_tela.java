@@ -15,6 +15,9 @@ public class Load_tela extends javax.swing.JFrame {
      */
     public Load_tela() {
         initComponents();
+        setSize(768,432);
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
@@ -31,12 +34,18 @@ public class Load_tela extends javax.swing.JFrame {
         voltar_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(768, 432));
 
         load_tela.setBackground(new java.awt.Color(204, 102, 0));
 
         carregar_btn.setLabel("Carregar");
 
         voltar_btn.setLabel("Voltar");
+        voltar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltar_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout load_telaLayout = new javax.swing.GroupLayout(load_tela);
         load_tela.setLayout(load_telaLayout);
@@ -75,6 +84,11 @@ public class Load_tela extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void voltar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_btnActionPerformed
+        index tela_home = new index();
+        tela_home.setVisible(true);
+    }//GEN-LAST:event_voltar_btnActionPerformed
 
     /**
      * @param args the command line arguments

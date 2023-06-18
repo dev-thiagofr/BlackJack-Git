@@ -18,6 +18,9 @@ public class index extends javax.swing.JFrame {
         
         ImageIcon icone1= new ImageIcon("Imagens/icon_blackjack.jpg");
         setIconImage(icone1.getImage());
+        
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
 
@@ -129,7 +132,10 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        // TODO add your handling code here:
+        Blackjack_tela tela2 = new Blackjack_tela();
+        tela2.setVisible(true);
+        index tela1 = new index();
+        tela1.setVisible(false);
     }//GEN-LAST:event_btnStartActionPerformed
     
    

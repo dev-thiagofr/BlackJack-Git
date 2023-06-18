@@ -15,6 +15,9 @@ public class Blackjack_tela extends javax.swing.JFrame {
      */
     public Blackjack_tela() {
         initComponents();
+        setSize(768,432);
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
@@ -38,6 +41,8 @@ public class Blackjack_tela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
+        setPreferredSize(new java.awt.Dimension(768, 423));
+        setResizable(false);
 
         jogo_tela.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -64,7 +69,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
             }
         });
 
-        parar_btn.setText("jButton1");
+        parar_btn.setLabel("PARAR");
 
         javax.swing.GroupLayout jogo_telaLayout = new javax.swing.GroupLayout(jogo_tela);
         jogo_tela.setLayout(jogo_telaLayout);
