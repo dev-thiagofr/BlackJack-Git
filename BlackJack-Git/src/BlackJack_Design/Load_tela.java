@@ -32,13 +32,19 @@ public class Load_tela extends javax.swing.JFrame {
         load_tela = new javax.swing.JPanel();
         carregar_btn = new javax.swing.JButton();
         voltar_btn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(768, 432));
+        setPreferredSize(new java.awt.Dimension(1024, 576));
 
         load_tela.setBackground(new java.awt.Color(204, 102, 0));
+        load_tela.setMaximumSize(new java.awt.Dimension(1024, 576));
+        load_tela.setMinimumSize(new java.awt.Dimension(1024, 576));
+        load_tela.setPreferredSize(new java.awt.Dimension(1024, 576));
+        load_tela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         carregar_btn.setLabel("Carregar");
+        load_tela.add(carregar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 117, 46));
 
         voltar_btn.setLabel("Voltar");
         voltar_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -46,36 +52,20 @@ public class Load_tela extends javax.swing.JFrame {
                 voltar_btnActionPerformed(evt);
             }
         });
+        load_tela.add(voltar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 113, 46));
 
-        javax.swing.GroupLayout load_telaLayout = new javax.swing.GroupLayout(load_tela);
-        load_tela.setLayout(load_telaLayout);
-        load_telaLayout.setHorizontalGroup(
-            load_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(load_telaLayout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(carregar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addComponent(voltar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
-        );
-        load_telaLayout.setVerticalGroup(
-            load_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, load_telaLayout.createSequentialGroup()
-                .addContainerGap(326, Short.MAX_VALUE)
-                .addGroup(load_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(carregar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(voltar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundLiso_resized.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1024, 576));
+        load_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(load_tela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(load_tela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,6 +118,7 @@ public class Load_tela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton carregar_btn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel load_tela;
     private javax.swing.JButton voltar_btn;
     // End of variables declaration//GEN-END:variables

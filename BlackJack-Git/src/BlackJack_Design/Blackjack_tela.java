@@ -38,101 +38,98 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta3 = new javax.swing.JLabel();
         compra_btn = new javax.swing.JButton();
         parar_btn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
-        setPreferredSize(new java.awt.Dimension(768, 423));
+        setMaximumSize(new java.awt.Dimension(1024, 576));
+        setMinimumSize(new java.awt.Dimension(1024, 576));
+        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
 
-        jogo_tela.setBackground(new java.awt.Color(0, 102, 102));
+        jogo_tela.setBackground(new java.awt.Color(255, 255, 255));
+        jogo_tela.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jogo_tela.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jogo_tela.setPreferredSize(new java.awt.Dimension(1024, 576));
+        jogo_tela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dealer_virada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/CartaVirada.png"))); // NOI18N
-        dealer_virada.setText("jLabel1");
+        dealer_virada.setText("cartaVirada");
+        dealer_virada.setMaximumSize(new java.awt.Dimension(51, 93));
+        dealer_virada.setMinimumSize(new java.awt.Dimension(51, 93));
+        dealer_virada.setPreferredSize(new java.awt.Dimension(51, 93));
+        jogo_tela.add(dealer_virada, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 140, -1, -1));
 
         dealer_carta1.setBackground(new java.awt.Color(102, 102, 0));
-        dealer_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2c.png"))); // NOI18N
-        dealer_carta1.setText("jLabel1");
+        dealer_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2c_resized (1).png"))); // NOI18N
+        dealer_carta1.setText("carta1");
+        dealer_carta1.setMaximumSize(new java.awt.Dimension(51, 93));
+        dealer_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
+        dealer_carta1.setPreferredSize(new java.awt.Dimension(51, 93));
+        jogo_tela.add(dealer_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
 
         dealer_carta3.setText("carta3");
+        dealer_carta3.setMaximumSize(new java.awt.Dimension(51, 93));
+        dealer_carta3.setMinimumSize(new java.awt.Dimension(51, 93));
+        dealer_carta3.setPreferredSize(new java.awt.Dimension(51, 93));
+        jogo_tela.add(dealer_carta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, -1, -1));
+        dealer_carta3.getAccessibleContext().setAccessibleName("");
+        dealer_carta3.getAccessibleContext().setAccessibleDescription("");
 
-        player_carta1.setText("player1");
+        player_carta1.setText("carta1");
+        player_carta1.setMaximumSize(new java.awt.Dimension(51, 93));
+        player_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
+        player_carta1.setPreferredSize(new java.awt.Dimension(51, 83));
+        jogo_tela.add(player_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
-        player_carta2.setText("player2");
+        player_carta2.setText("carta2");
+        player_carta2.setMaximumSize(new java.awt.Dimension(51, 93));
+        player_carta2.setMinimumSize(new java.awt.Dimension(51, 93));
+        player_carta2.setPreferredSize(new java.awt.Dimension(51, 93));
         player_carta2.setRequestFocusEnabled(false);
+        jogo_tela.add(player_carta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 320, -1, -1));
 
-        player_carta3.setText("player3");
+        player_carta3.setText("carta3");
+        player_carta3.setMaximumSize(new java.awt.Dimension(51, 93));
+        player_carta3.setMinimumSize(new java.awt.Dimension(51, 93));
+        player_carta3.setPreferredSize(new java.awt.Dimension(51, 93));
+        jogo_tela.add(player_carta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, -1, -1));
 
+        compra_btn.setBackground(new java.awt.Color(4, 54, 25));
+        compra_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         compra_btn.setText("COMPRAR");
+        compra_btn.setPreferredSize(new java.awt.Dimension(140, 60));
         compra_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compra_btnActionPerformed(evt);
             }
         });
+        jogo_tela.add(compra_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 420, -1, -1));
 
+        parar_btn.setBackground(new java.awt.Color(4, 54, 25));
+        parar_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         parar_btn.setLabel("PARAR");
+        parar_btn.setPreferredSize(new java.awt.Dimension(140, 60));
+        jogo_tela.add(parar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 420, -1, -1));
 
-        javax.swing.GroupLayout jogo_telaLayout = new javax.swing.GroupLayout(jogo_tela);
-        jogo_tela.setLayout(jogo_telaLayout);
-        jogo_telaLayout.setHorizontalGroup(
-            jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jogo_telaLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(player_carta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dealer_virada, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(dealer_carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(player_carta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jogo_telaLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(dealer_carta3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jogo_telaLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(player_carta3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(85, 85, 85)
-                .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(compra_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                    .addComponent(parar_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(43, 43, 43))
-        );
-        jogo_telaLayout.setVerticalGroup(
-            jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jogo_telaLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(dealer_carta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(compra_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dealer_carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(dealer_virada, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jogo_telaLayout.createSequentialGroup()
-                        .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(player_carta3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jogo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(player_carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(player_carta2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(70, 70, 70))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jogo_telaLayout.createSequentialGroup()
-                        .addComponent(parar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107))))
-        );
-
-        dealer_carta3.getAccessibleContext().setAccessibleName("");
-        dealer_carta3.getAccessibleContext().setAccessibleDescription("");
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundJogoF.png"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel2.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel2.setPreferredSize(new java.awt.Dimension(1024, 576));
+        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jogo_tela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jogo_tela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jogo_tela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jogo_tela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         getAccessibleContext().setAccessibleParent(this);
@@ -187,6 +184,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private javax.swing.JLabel dealer_carta1;
     private javax.swing.JLabel dealer_carta3;
     private javax.swing.JLabel dealer_virada;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jogo_tela;
     private javax.swing.JButton parar_btn;
     private javax.swing.JLabel player_carta1;

@@ -36,8 +36,12 @@ public class index extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusableWindowState(false);
+        setMaximumSize(new java.awt.Dimension(1024, 576));
+        setMinimumSize(new java.awt.Dimension(1024, 576));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(620, 480));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 576));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnStart.setBackground(new java.awt.Color(178, 0, 0));
@@ -47,7 +51,7 @@ public class index extends javax.swing.JFrame {
         btnStart.setBorder(null);
         btnStart.setMaximumSize(new java.awt.Dimension(150, 65));
         btnStart.setMinimumSize(new java.awt.Dimension(150, 65));
-        btnStart.setPreferredSize(new java.awt.Dimension(100, 60));
+        btnStart.setPreferredSize(new java.awt.Dimension(140, 60));
         btnStart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnStartMouseClicked(evt);
@@ -58,20 +62,20 @@ public class index extends javax.swing.JFrame {
                 btnStartActionPerformed(evt);
             }
         });
-        jPanel1.add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 290, -1, -1));
+        jPanel1.add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
 
         btnLoad.setBackground(new java.awt.Color(178, 0, 0));
         btnLoad.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
         btnLoad.setForeground(new java.awt.Color(255, 255, 255));
         btnLoad.setText("CARREGAR");
         btnLoad.setBorder(null);
-        btnLoad.setPreferredSize(new java.awt.Dimension(100, 60));
+        btnLoad.setPreferredSize(new java.awt.Dimension(140, 60));
         btnLoad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLoadMouseClicked(evt);
             }
         });
-        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 290, -1, -1));
+        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 400, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(178, 0, 0));
         btnExit.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -80,7 +84,7 @@ public class index extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setMaximumSize(new java.awt.Dimension(100, 50));
         btnExit.setMinimumSize(new java.awt.Dimension(100, 50));
-        btnExit.setPreferredSize(new java.awt.Dimension(100, 60));
+        btnExit.setPreferredSize(new java.awt.Dimension(140, 60));
         btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnExitMouseClicked(evt);
@@ -91,9 +95,9 @@ public class index extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 290, -1, -1));
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 400, -1, -1));
 
-        img_tela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/StartScreenF%20(1)_resized.png"))); // NOI18N
+        img_tela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/StartScreenFinal.png"))); // NOI18N
         img_tela.setInheritsPopupMenu(false);
         jPanel1.add(img_tela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -101,11 +105,11 @@ public class index extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
