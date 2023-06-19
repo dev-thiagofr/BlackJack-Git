@@ -59,6 +59,16 @@ public class Blackjack_tela extends javax.swing.JFrame {
         dealer_virada.setMinimumSize(new java.awt.Dimension(51, 93));
         dealer_virada.setPreferredSize(new java.awt.Dimension(51, 93));
         jogo_tela.add(dealer_virada, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 140, -1, -1));
+        // Carrega a imagem original
+        ImageIcon imageIcon = new ImageIcon("caminho/para/imagem.png");
+
+        // Redimensiona a imagem para o tamanho desejado
+        int larguraDesejada = 51;
+        int alturaDesejada = 93;
+        Image imagemRedimensionada = imageIcon.getImage().getScaledInstance(larguraDesejada, alturaDesejada, Image.SCALE_DEFAULT);
+
+        // Cria um novo ImageIcon com a imagem redimensionada
+        ImageIcon imagemRedimensionadaIcon = new ImageIcon(imagemRedimensionada);
 
         dealer_carta1.setBackground(new java.awt.Color(102, 102, 0));
         dealer_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2c_resized (1).png"))); // NOI18N
@@ -114,9 +124,6 @@ public class Blackjack_tela extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundJogoF.png"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(1024, 576));
-        jLabel2.setMinimumSize(new java.awt.Dimension(1024, 576));
-        jLabel2.setPreferredSize(new java.awt.Dimension(1024, 576));
         jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="iconImages" type="java.util.List" editor="org.netbeans.modules.form.ComponentChooserEditor">
@@ -90,6 +90,9 @@
               <Dimension value="[51, 93]"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="// Carrega a imagem original&#xa;        ImageIcon imageIcon = new ImageIcon(&quot;caminho/para/imagem.png&quot;);&#xa;        &#xa;        // Redimensiona a imagem para o tamanho desejado&#xa;        int larguraDesejada = 51;&#xa;        int alturaDesejada = 93;&#xa;        Image imagemRedimensionada = imageIcon.getImage().getScaledInstance(larguraDesejada, alturaDesejada, Image.SCALE_DEFAULT);&#xa;        &#xa;        // Cria um novo ImageIcon com a imagem redimensionada&#xa;        ImageIcon imagemRedimensionadaIcon = new ImageIcon(imagemRedimensionada);"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="487" y="140" width="-1" height="-1"/>
@@ -250,15 +253,6 @@
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagens/BackgroundJogoF.png"/>
-            </Property>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1024, 576]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1024, 576]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1024, 576]"/>
             </Property>
           </Properties>
           <Constraints>
