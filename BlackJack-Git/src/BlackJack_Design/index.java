@@ -38,6 +38,7 @@ public class index extends javax.swing.JFrame {
         setFocusableWindowState(false);
         setMaximumSize(new java.awt.Dimension(1024, 576));
         setMinimumSize(new java.awt.Dimension(1024, 576));
+        setResizable(false);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1024, 576));
         jPanel1.setMinimumSize(new java.awt.Dimension(1024, 576));
@@ -73,6 +74,11 @@ public class index extends javax.swing.JFrame {
         btnLoad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLoadMouseClicked(evt);
+            }
+        });
+        btnLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadActionPerformed(evt);
             }
         });
         jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 400, -1, -1));
@@ -141,6 +147,13 @@ public class index extends javax.swing.JFrame {
         index tela1 = new index();
         tela1.setVisible(false);
     }//GEN-LAST:event_btnStartActionPerformed
+
+    private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed
+        Load_tela load_screen = new Load_tela();
+        load_screen.setVisible(true);
+        index tela1 = new index();
+        tela1.setVisible(false);
+    }//GEN-LAST:event_btnLoadActionPerformed
     
    
     public static void main(String args[]) {
