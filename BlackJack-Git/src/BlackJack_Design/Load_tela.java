@@ -46,6 +46,11 @@ public class Load_tela extends javax.swing.JFrame {
         load_tela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         carregar_btn.setLabel("Carregar");
+        carregar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carregar_btnActionPerformed(evt);
+            }
+        });
         load_tela.add(carregar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 117, 46));
 
         voltar_btn.setLabel("Voltar");
@@ -81,6 +86,10 @@ public class Load_tela extends javax.swing.JFrame {
         index tela_home = new index();
         tela_home.setVisible(true);
     }//GEN-LAST:event_voltar_btnActionPerformed
+
+    private void carregar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregar_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carregar_btnActionPerformed
 
     /**
      * @param args the command line arguments
