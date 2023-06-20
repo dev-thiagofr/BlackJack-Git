@@ -71,13 +71,14 @@ public class Blackjack_tela extends javax.swing.JFrame {
         ImageIcon imagemRedimensionadaIcon = new ImageIcon(imagemRedimensionada);
 
         dealer_carta1.setBackground(new java.awt.Color(102, 102, 0));
-        dealer_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2c_resized (1).png"))); // NOI18N
+        dealer_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2p.png"))); // NOI18N
         dealer_carta1.setText("carta1");
         dealer_carta1.setMaximumSize(new java.awt.Dimension(51, 93));
         dealer_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
         dealer_carta1.setPreferredSize(new java.awt.Dimension(51, 93));
         jogo_tela.add(dealer_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
 
+        dealer_carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/6c.png"))); // NOI18N
         dealer_carta3.setText("carta3");
         dealer_carta3.setMaximumSize(new java.awt.Dimension(51, 93));
         dealer_carta3.setMinimumSize(new java.awt.Dimension(51, 93));
@@ -86,12 +87,14 @@ public class Blackjack_tela extends javax.swing.JFrame {
         dealer_carta3.getAccessibleContext().setAccessibleName("");
         dealer_carta3.getAccessibleContext().setAccessibleDescription("");
 
+        player_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2c.png"))); // NOI18N
         player_carta1.setText("carta1");
         player_carta1.setMaximumSize(new java.awt.Dimension(51, 93));
         player_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
         player_carta1.setPreferredSize(new java.awt.Dimension(51, 83));
-        jogo_tela.add(player_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
+        jogo_tela.add(player_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 313, 50, 90));
 
+        player_carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/3c.png"))); // NOI18N
         player_carta2.setText("carta2");
         player_carta2.setMaximumSize(new java.awt.Dimension(51, 93));
         player_carta2.setMinimumSize(new java.awt.Dimension(51, 93));
@@ -99,6 +102,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta2.setRequestFocusEnabled(false);
         jogo_tela.add(player_carta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 320, -1, -1));
 
+        player_carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/3p.png"))); // NOI18N
         player_carta3.setText("carta3");
         player_carta3.setMaximumSize(new java.awt.Dimension(51, 93));
         player_carta3.setMinimumSize(new java.awt.Dimension(51, 93));

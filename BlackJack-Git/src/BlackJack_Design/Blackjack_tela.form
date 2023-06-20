@@ -105,7 +105,7 @@
               <Color blue="0" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagens/2c_resized (1).png"/>
+              <Image iconType="3" name="/Imagens/2p.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="carta1"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -126,6 +126,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="dealer_carta3">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/6c.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="carta3"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[51, 93]"/>
@@ -149,6 +152,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="player_carta1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/2c.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="carta1"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[51, 93]"/>
@@ -162,12 +168,15 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="420" y="320" width="-1" height="-1"/>
+              <AbsoluteConstraints x="420" y="313" width="50" height="90"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="player_carta2">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/3c.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="carta2"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[51, 93]"/>
@@ -188,6 +197,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="player_carta3">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/3p.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="carta3"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[51, 93]"/>
