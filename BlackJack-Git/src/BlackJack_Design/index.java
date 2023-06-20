@@ -46,7 +46,7 @@ public class index extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnStart.setBackground(new java.awt.Color(178, 0, 0));
-        btnStart.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        btnStart.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnStart.setForeground(new java.awt.Color(255, 255, 255));
         btnStart.setText("COMEÇAR");
         btnStart.setBorder(null);
@@ -66,7 +66,7 @@ public class index extends javax.swing.JFrame {
         jPanel1.add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
 
         btnLoad.setBackground(new java.awt.Color(178, 0, 0));
-        btnLoad.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
+        btnLoad.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnLoad.setForeground(new java.awt.Color(255, 255, 255));
         btnLoad.setText("CARREGAR");
         btnLoad.setBorder(null);
