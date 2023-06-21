@@ -7,8 +7,12 @@ import BlackJack_Code.Baralho;
 import BlackJack_Code.Fichas;
 import BlackJack_Code.Jogadores;
 
+
 import java.awt.Image;
 import javax.swing.*;
+import javax.swing.ImageIcon;
+
+
 /**
  *
  * @author Arthu
@@ -63,6 +67,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta3 = new javax.swing.JLabel();
         compra_btn = new javax.swing.JButton();
         parar_btn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,7 +118,8 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta1.setMaximumSize(new java.awt.Dimension(51, 93));
         player_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
         player_carta1.setName(""); // NOI18N
-        player_carta1.setPreferredSize(new java.awt.Dimension(51, 83));
+
+        player_carta1.setPreferredSize(new java.awt.Dimension(51, 93));
         jogo_tela.add(player_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 50, 90));
 
         player_carta2.setText("carta2");
@@ -143,18 +149,27 @@ public class Blackjack_tela extends javax.swing.JFrame {
                 compra_btnActionPerformed(evt);
             }
         });
-        jogo_tela.add(compra_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 420, -1, -1));
+        jogo_tela.add(compra_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 360, -1, -1));
 
         parar_btn.setBackground(new java.awt.Color(4, 54, 25));
         parar_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         parar_btn.setLabel("PARAR");
         parar_btn.setPreferredSize(new java.awt.Dimension(140, 60));
+
         parar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 parar_btnActionPerformed(evt);
             }
         });
-        jogo_tela.add(parar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 420, -1, -1));
+
+
+        jogo_tela.add(parar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 440, -1, -1));
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Preto.jpg"))); // NOI18N
+        jogo_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 390, 160));
+
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundJogoF.png"))); // NOI18N
@@ -332,6 +347,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private javax.swing.JLabel dealer_carta1;
     private javax.swing.JLabel dealer_carta3;
     private javax.swing.JLabel dealer_virada;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jogo_tela;
     private javax.swing.JButton parar_btn;

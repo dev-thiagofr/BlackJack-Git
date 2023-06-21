@@ -45,23 +45,29 @@ public class Load_tela extends javax.swing.JFrame {
         load_tela.setPreferredSize(new java.awt.Dimension(1024, 576));
         load_tela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        carregar_btn.setBackground(new java.awt.Color(4, 54, 25));
+        carregar_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         carregar_btn.setLabel("Carregar");
+        carregar_btn.setPreferredSize(new java.awt.Dimension(140, 60));
         carregar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carregar_btnActionPerformed(evt);
             }
         });
-        load_tela.add(carregar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 117, 46));
+        load_tela.add(carregar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 230, -1, -1));
 
+        voltar_btn.setBackground(new java.awt.Color(4, 54, 25));
+        voltar_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         voltar_btn.setLabel("Voltar");
+        voltar_btn.setPreferredSize(new java.awt.Dimension(140, 60));
         voltar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 voltar_btnActionPerformed(evt);
             }
         });
-        load_tela.add(voltar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 113, 46));
+        load_tela.add(voltar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 310, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundLiso_resized.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundLiso.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMaximumSize(new java.awt.Dimension(1024, 576));
         jLabel1.setMinimumSize(new java.awt.Dimension(1024, 576));
