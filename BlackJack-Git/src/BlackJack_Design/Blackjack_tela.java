@@ -9,6 +9,7 @@ import BlackJack_Code.Jogadores;
 
 
 import java.awt.Image;
+import java.awt.*;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 
@@ -67,8 +68,9 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta3 = new javax.swing.JLabel();
         compra_btn = new javax.swing.JButton();
         parar_btn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        dealer_dialogo = new javax.swing.JLabel();
+        pontuação_tela = new javax.swing.JLabel();
+        label_background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -118,7 +120,6 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta1.setMaximumSize(new java.awt.Dimension(51, 93));
         player_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
         player_carta1.setName(""); // NOI18N
-
         player_carta1.setPreferredSize(new java.awt.Dimension(51, 93));
         jogo_tela.add(player_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 50, 90));
 
@@ -155,25 +156,25 @@ public class Blackjack_tela extends javax.swing.JFrame {
         parar_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         parar_btn.setLabel("PARAR");
         parar_btn.setPreferredSize(new java.awt.Dimension(140, 60));
-
         parar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 parar_btnActionPerformed(evt);
             }
         });
-
-
         jogo_tela.add(parar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 440, -1, -1));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Preto.jpg"))); // NOI18N
-        jogo_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 390, 160));
+        dealer_dialogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        dealer_dialogo.setText("jLabel1");
+        jogo_tela.add(dealer_dialogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 390, 110));
 
+        pontuação_tela.setBackground(new java.awt.Color(0, 0, 0));
+        pontuação_tela.setForeground(new java.awt.Color(0, 0, 0));
+        pontuação_tela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Preto.jpg"))); // NOI18N
+        jogo_tela.add(pontuação_tela, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 390, 160));
 
-        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundJogoF.png"))); // NOI18N
-        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        label_background.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundJogoF.png"))); // NOI18N
+        jogo_tela.add(label_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,7 +231,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
     }
     
     public void jogo(){
-        
+        //Criação da mão inicial do dealer e do jogador
         player.adicionarCarta(baralhodoJogo.comprar());
         dealer.adicionarCarta(baralhodoJogo.comprar());
         
@@ -242,7 +243,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         String sub_mao2= player.toString().substring(3,6);
         String sub_mao3= dealer.toString().substring(3,6);
         
-        
+        //Criação das cartas respectivas nas labels
         ImageIcon icon_virada = new ImageIcon(getClass().getResource("/Imagens/CartaVirada.png"));
         dealer_carta1.setIcon(icon_virada);
         
@@ -254,6 +255,21 @@ public class Blackjack_tela extends javax.swing.JFrame {
         
         ImageIcon icon3 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao3+".png"));
         dealer_virada.setIcon(icon3);
+        
+        ImageIcon icon4 = new ImageIcon(getClass().getResource("/Imagens/carta_vazia.png"));
+        dealer_carta3.setIcon(icon4);
+        player_carta3.setIcon(icon4);
+        
+        //Falas do Dealer
+        String dealer_voz1 ="<html>Dealer:<br>Vamos apostar meu caro jogador?<br>"
+                + "Hmmm, que mão interessante você tem!</html>";
+        
+        dealer_dialogo.setForeground(Color.white);
+        dealer_dialogo.setText(dealer_voz1);
+        
+       
+        
+        
     }
     
     
@@ -346,13 +362,14 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private javax.swing.JButton compra_btn;
     private javax.swing.JLabel dealer_carta1;
     private javax.swing.JLabel dealer_carta3;
+    private javax.swing.JLabel dealer_dialogo;
     private javax.swing.JLabel dealer_virada;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jogo_tela;
+    private javax.swing.JLabel label_background;
     private javax.swing.JButton parar_btn;
     private javax.swing.JLabel player_carta1;
     private javax.swing.JLabel player_carta2;
     private javax.swing.JLabel player_carta3;
+    private javax.swing.JLabel pontuação_tela;
     // End of variables declaration//GEN-END:variables
 }
