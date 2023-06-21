@@ -9,7 +9,7 @@ public class Baralho {
     
     public Baralho(){
         String[] naipes = {"e", "c", "o", "p"};
-        String[] ids = {"a", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"};
+        String[] ids = {"as", "02", "03", "04", "05", "06", "07", "08", "09", "10", "jk", "qn", "kg"};
         cartas = new ArrayList<>();
     
         for(String naipeCarta:naipes){

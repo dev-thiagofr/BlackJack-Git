@@ -34,7 +34,9 @@ public class Blackjack_tela extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         
+        inicio_jogo();
         jogo();
+        
         
         //teste para a carta já vir setada.
         //dealer.adicionarCarta(baralhodoJogo.comprar());
@@ -112,7 +114,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
         player_carta1.setName(""); // NOI18N
         player_carta1.setPreferredSize(new java.awt.Dimension(51, 83));
-        jogo_tela.add(player_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 313, 50, 90));
+        jogo_tela.add(player_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 50, 90));
 
         player_carta2.setText("carta2");
         player_carta2.setMaximumSize(new java.awt.Dimension(51, 93));
@@ -147,11 +149,16 @@ public class Blackjack_tela extends javax.swing.JFrame {
         parar_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         parar_btn.setLabel("PARAR");
         parar_btn.setPreferredSize(new java.awt.Dimension(140, 60));
+        parar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parar_btnActionPerformed(evt);
+            }
+        });
         jogo_tela.add(parar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 420, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundJogoF.png"))); // NOI18N
-        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
+        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,36 +179,121 @@ public class Blackjack_tela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void compra_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compra_btnActionPerformed
+        player.adicionarCarta(baralhodoJogo.comprar());
+        String sub_mao4= player.toString().substring(6,9);
+        ImageIcon icon4 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao4+".png"));
+        player_carta3.setIcon(icon4);   
         
+        if(player.valorDaMão()>21){
+            JOptionPane.showMessageDialog(this, "Voce perdeu");
+        }
+        else{
+            dealer.adicionarCarta(baralhodoJogo.comprar());
+            String sub_mao5=dealer.toString().substring(6,9);
+            ImageIcon icon5 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao5+".png"));
+            dealer_carta3.setIcon(icon5);   
+        }
     }//GEN-LAST:event_compra_btnActionPerformed
 
     private void compra_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compra_btnMouseClicked
-        //dealer.adicionarCarta(baralhodoJogo.comprar());
-        //ImageIcon icon = new ImageIcon(getClass().getResource("/Imagens/"+dealer.toString()+".png"));
-        //dealer_carta1.setIcon(icon);
-        //dealer_carta1.setText(dealer.toString()+".png");
+        
+        
         
     }//GEN-LAST:event_compra_btnMouseClicked
+
+    private void parar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parar_btnActionPerformed
+        resultados();
+        
+    }//GEN-LAST:event_parar_btnActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    public void inicio_jogo(){
+
+    }
+    
     public void jogo(){
+        
+        player.adicionarCarta(baralhodoJogo.comprar());
+        dealer.adicionarCarta(baralhodoJogo.comprar());
+        
+        player.adicionarCarta(baralhodoJogo.comprar());
+        dealer.adicionarCarta(baralhodoJogo.comprar());
+        
+        
+        String sub_mao1= player.toString().substring(0,3);
+        String sub_mao2= player.toString().substring(3,6);
+        String sub_mao3= dealer.toString().substring(3,6);
+        
         
         ImageIcon icon_virada = new ImageIcon(getClass().getResource("/Imagens/CartaVirada.png"));
         dealer_carta1.setIcon(icon_virada);
         
-        player.adicionarCarta(baralhodoJogo.comprar());
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Imagens/"+player.toString()+".png"));
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao1+".png"));
         player_carta1.setIcon(icon1);
         
+        ImageIcon icon2 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao2+".png"));
+        player_carta2.setIcon(icon2);
         
-        //dealer.adicionarCarta(baralhodoJogo.comprar());
-        //player.adicionarCarta(baralhodoJogo.comprar());
-        //dealer.adicionarCarta(baralhodoJogo.comprar());
+        ImageIcon icon3 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao3+".png"));
+        dealer_virada.setIcon(icon3);
+    }
+    
+    
+    public void resultados(){
+        int pPontos = player.valorDaMão();
+        int dPontos = dealer.valorDaMão();
+        
+        if(pPontos>21){
+            ficha_jogo.qtn_perdeu();
+            JOptionPane.showMessageDialog(this, "Estouro,você perdeu");
+            novo_jogo();
+        }
+        else if(dPontos>21){
+            ficha_jogo.qtn_venceu();
+            JOptionPane.showMessageDialog(this, "Que sorte , o dealer estourou!");
+            novo_jogo();
+        }
+        else if(dPontos>pPontos){
+            ficha_jogo.qtn_perdeu();
+            JOptionPane.showMessageDialog(this, "A mão do dealer era maior :c");
+            novo_jogo();
+        }
+        else if(dPontos<pPontos){
+            ficha_jogo.qtn_venceu();
+            JOptionPane.showMessageDialog(this, "Sua mão era maior, parabens!");
+            novo_jogo();
+       }
+        else{
+            JOptionPane.showMessageDialog(this, "Empate");
+            novo_jogo();
+        }
+    }
+    
+    public void novo_jogo(){
+        int opcao = JOptionPane.showOptionDialog(this,
+                "Mais uma rodada?",
+                "Novo Jogo",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                null,
+                null);
+        
+        if(opcao == JOptionPane.YES_OPTION){
+        dispose();
+        Blackjack_tela teste1=new Blackjack_tela();
+        teste1.setVisible(true);
+        }
+        else{
+           
+        }
         
         
     }
+    
     public static void main(String args[]) {
         
         //Blackjack_tela teste1 = new Blackjack_tela();
