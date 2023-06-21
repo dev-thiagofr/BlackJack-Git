@@ -12,16 +12,16 @@ public class Carta {
    
     
     public int valorDaCarta(){
-        if(idCarta.equals("a")){
+        if(idCarta.equals("as")){
             return 11;
         }
-        else if(idCarta.equals("j")){
+        else if(idCarta.equals("jk")){
             return 10;
         }
-        else if(idCarta.equals("q")){
+        else if(idCarta.equals("qn")){
             return 10;
         }
-        else if(idCarta.equals("k")){
+        else if(idCarta.equals("kg")){
             return 10;
         }
         //Convertendo o número de ID da carta para int e retornando como valor.

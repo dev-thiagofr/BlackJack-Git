@@ -3,27 +3,52 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package BlackJack_Design;
+import BlackJack_Code.Baralho;
+import BlackJack_Code.Fichas;
+import BlackJack_Code.Jogadores;
 
-import javax.swing.ImageIcon;
+
 import java.awt.Image;
 import javax.swing.*;
+import javax.swing.ImageIcon;
+
 
 /**
  *
  * @author Arthu
  */
 public class Blackjack_tela extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form TelaPrincipal
      */
+    private Baralho baralhodoJogo;
+    private Jogadores dealer;
+    private Jogadores player;
+    private Fichas ficha_jogo;
     public Blackjack_tela() {
+        baralhodoJogo = new Baralho();
+        baralhodoJogo.embaralhando();
+        
+        dealer = new Jogadores();
+        player = new Jogadores();
+        ficha_jogo = new Fichas(200);
         initComponents();
         setSize(768,432);
         setLocationRelativeTo(null);
         setResizable(false);
+        
+        inicio_jogo();
+        jogo();
+        
+        
+        //teste para a carta já vir setada.
+        //dealer.adicionarCarta(baralhodoJogo.comprar());
+        //ImageIcon icon = new ImageIcon(getClass().getResource("/Imagens/"+dealer.toString()+".png"));
+        //dealer_virada.setIcon(icon);
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,7 +83,6 @@ public class Blackjack_tela extends javax.swing.JFrame {
         jogo_tela.setPreferredSize(new java.awt.Dimension(1024, 576));
         jogo_tela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dealer_virada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/CartaVirada.png"))); // NOI18N
         dealer_virada.setText("cartaVirada");
         dealer_virada.setMaximumSize(new java.awt.Dimension(51, 93));
         dealer_virada.setMinimumSize(new java.awt.Dimension(51, 93));
@@ -76,14 +100,12 @@ public class Blackjack_tela extends javax.swing.JFrame {
         ImageIcon imagemRedimensionadaIcon = new ImageIcon(imagemRedimensionada);
 
         dealer_carta1.setBackground(new java.awt.Color(102, 102, 0));
-        dealer_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2p.png"))); // NOI18N
         dealer_carta1.setText("carta1");
         dealer_carta1.setMaximumSize(new java.awt.Dimension(51, 93));
         dealer_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
         dealer_carta1.setPreferredSize(new java.awt.Dimension(51, 93));
         jogo_tela.add(dealer_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
 
-        dealer_carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/6c.png"))); // NOI18N
         dealer_carta3.setText("carta3");
         dealer_carta3.setMaximumSize(new java.awt.Dimension(51, 93));
         dealer_carta3.setMinimumSize(new java.awt.Dimension(51, 93));
@@ -92,14 +114,14 @@ public class Blackjack_tela extends javax.swing.JFrame {
         dealer_carta3.getAccessibleContext().setAccessibleName("");
         dealer_carta3.getAccessibleContext().setAccessibleDescription("");
 
-        player_carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/2c.png"))); // NOI18N
         player_carta1.setText("carta1");
         player_carta1.setMaximumSize(new java.awt.Dimension(51, 93));
         player_carta1.setMinimumSize(new java.awt.Dimension(51, 93));
+        player_carta1.setName(""); // NOI18N
+
         player_carta1.setPreferredSize(new java.awt.Dimension(51, 93));
         jogo_tela.add(player_carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 50, 90));
 
-        player_carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/3c.png"))); // NOI18N
         player_carta2.setText("carta2");
         player_carta2.setMaximumSize(new java.awt.Dimension(51, 93));
         player_carta2.setMinimumSize(new java.awt.Dimension(51, 93));
@@ -107,7 +129,6 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta2.setRequestFocusEnabled(false);
         jogo_tela.add(player_carta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 320, -1, -1));
 
-        player_carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/3p.png"))); // NOI18N
         player_carta3.setText("carta3");
         player_carta3.setMaximumSize(new java.awt.Dimension(51, 93));
         player_carta3.setMinimumSize(new java.awt.Dimension(51, 93));
@@ -118,6 +139,11 @@ public class Blackjack_tela extends javax.swing.JFrame {
         compra_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         compra_btn.setText("COMPRAR");
         compra_btn.setPreferredSize(new java.awt.Dimension(140, 60));
+        compra_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                compra_btnMouseClicked(evt);
+            }
+        });
         compra_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compra_btnActionPerformed(evt);
@@ -129,6 +155,14 @@ public class Blackjack_tela extends javax.swing.JFrame {
         parar_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         parar_btn.setLabel("PARAR");
         parar_btn.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        parar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parar_btnActionPerformed(evt);
+            }
+        });
+
+
         jogo_tela.add(parar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 440, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -136,9 +170,10 @@ public class Blackjack_tela extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Preto.jpg"))); // NOI18N
         jogo_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 390, 160));
 
+
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundJogoF.png"))); // NOI18N
-        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
+        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,18 +194,125 @@ public class Blackjack_tela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void compra_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compra_btnActionPerformed
-        // TODO add your handling code here:
+        player.adicionarCarta(baralhodoJogo.comprar());
+        String sub_mao4= player.toString().substring(6,9);
+        ImageIcon icon4 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao4+".png"));
+        player_carta3.setIcon(icon4);   
+        
+        if(player.valorDaMão()>21){
+            JOptionPane.showMessageDialog(this, "Voce perdeu");
+        }
+        else{
+            dealer.adicionarCarta(baralhodoJogo.comprar());
+            String sub_mao5=dealer.toString().substring(6,9);
+            ImageIcon icon5 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao5+".png"));
+            dealer_carta3.setIcon(icon5);   
+        }
     }//GEN-LAST:event_compra_btnActionPerformed
+
+    private void compra_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compra_btnMouseClicked
+        
+        
+        
+    }//GEN-LAST:event_compra_btnMouseClicked
+
+    private void parar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parar_btnActionPerformed
+        resultados();
+        
+    }//GEN-LAST:event_parar_btnActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    public void inicio_jogo(){
+
+    }
+    
+    public void jogo(){
+        
+        player.adicionarCarta(baralhodoJogo.comprar());
+        dealer.adicionarCarta(baralhodoJogo.comprar());
+        
+        player.adicionarCarta(baralhodoJogo.comprar());
+        dealer.adicionarCarta(baralhodoJogo.comprar());
+        
+        
+        String sub_mao1= player.toString().substring(0,3);
+        String sub_mao2= player.toString().substring(3,6);
+        String sub_mao3= dealer.toString().substring(3,6);
+        
+        
+        ImageIcon icon_virada = new ImageIcon(getClass().getResource("/Imagens/CartaVirada.png"));
+        dealer_carta1.setIcon(icon_virada);
+        
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao1+".png"));
+        player_carta1.setIcon(icon1);
+        
+        ImageIcon icon2 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao2+".png"));
+        player_carta2.setIcon(icon2);
+        
+        ImageIcon icon3 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao3+".png"));
+        dealer_virada.setIcon(icon3);
+    }
+    
+    
+    public void resultados(){
+        int pPontos = player.valorDaMão();
+        int dPontos = dealer.valorDaMão();
+        
+        if(pPontos>21){
+            ficha_jogo.qtn_perdeu();
+            JOptionPane.showMessageDialog(this, "Estouro,você perdeu");
+            novo_jogo();
+        }
+        else if(dPontos>21){
+            ficha_jogo.qtn_venceu();
+            JOptionPane.showMessageDialog(this, "Que sorte , o dealer estourou!");
+            novo_jogo();
+        }
+        else if(dPontos>pPontos){
+            ficha_jogo.qtn_perdeu();
+            JOptionPane.showMessageDialog(this, "A mão do dealer era maior :c");
+            novo_jogo();
+        }
+        else if(dPontos<pPontos){
+            ficha_jogo.qtn_venceu();
+            JOptionPane.showMessageDialog(this, "Sua mão era maior, parabens!");
+            novo_jogo();
+       }
+        else{
+            JOptionPane.showMessageDialog(this, "Empate");
+            novo_jogo();
+        }
+    }
+    
+    public void novo_jogo(){
+        int opcao = JOptionPane.showOptionDialog(this,
+                "Mais uma rodada?",
+                "Novo Jogo",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                null,
+                null);
+        
+        if(opcao == JOptionPane.YES_OPTION){
+        dispose();
+        Blackjack_tela teste1=new Blackjack_tela();
+        teste1.setVisible(true);
+        }
+        else{
+           
+        }
+        
+        
+    }
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
+        //Blackjack_tela teste1 = new Blackjack_tela();
+        //teste1.jogo();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -193,11 +335,11 @@ public class Blackjack_tela extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Blackjack_tela().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Blackjack_tela().setVisible(true);
         });
+        ;
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
