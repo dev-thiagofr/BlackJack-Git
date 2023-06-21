@@ -6,8 +6,6 @@ package BlackJack_Design;
 import BlackJack_Code.Baralho;
 import BlackJack_Code.Fichas;
 import BlackJack_Code.Jogadores;
-
-
 import java.awt.Image;
 import java.awt.*;
 import javax.swing.*;
@@ -27,6 +25,8 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private Jogadores dealer;
     private Jogadores player;
     private Fichas ficha_jogo;
+    private int score_player;
+    private int score_dealer;
     public Blackjack_tela() {
         baralhodoJogo = new Baralho();
         baralhodoJogo.embaralhando();
@@ -60,6 +60,9 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private void initComponents() {
 
         jogo_tela = new javax.swing.JPanel();
+        dealer_dialogo = new javax.swing.JLabel();
+        score_jogo = new javax.swing.JLabel();
+        player_fichas = new javax.swing.JLabel();
         dealer_virada = new javax.swing.JLabel();
         dealer_carta1 = new javax.swing.JLabel();
         dealer_carta3 = new javax.swing.JLabel();
@@ -68,7 +71,6 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta3 = new javax.swing.JLabel();
         compra_btn = new javax.swing.JButton();
         parar_btn = new javax.swing.JButton();
-        dealer_dialogo = new javax.swing.JLabel();
         pontuação_tela = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
@@ -84,6 +86,18 @@ public class Blackjack_tela extends javax.swing.JFrame {
         jogo_tela.setMinimumSize(new java.awt.Dimension(1024, 576));
         jogo_tela.setPreferredSize(new java.awt.Dimension(1024, 576));
         jogo_tela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        dealer_dialogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        dealer_dialogo.setText("jLabel1");
+        jogo_tela.add(dealer_dialogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 350, 110));
+
+        score_jogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        score_jogo.setText("jLabel1");
+        jogo_tela.add(score_jogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 190, 40));
+
+        player_fichas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        player_fichas.setText("jLabel1");
+        jogo_tela.add(player_fichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 220, 40));
 
         dealer_virada.setText("cartaVirada");
         dealer_virada.setMaximumSize(new java.awt.Dimension(51, 93));
@@ -163,14 +177,10 @@ public class Blackjack_tela extends javax.swing.JFrame {
         });
         jogo_tela.add(parar_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 440, -1, -1));
 
-        dealer_dialogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
-        dealer_dialogo.setText("jLabel1");
-        jogo_tela.add(dealer_dialogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 390, 110));
-
         pontuação_tela.setBackground(new java.awt.Color(0, 0, 0));
         pontuação_tela.setForeground(new java.awt.Color(0, 0, 0));
         pontuação_tela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Preto.jpg"))); // NOI18N
-        jogo_tela.add(pontuação_tela, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 390, 160));
+        jogo_tela.add(pontuação_tela, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 390, 160));
 
         label_background.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BackgroundJogoF.png"))); // NOI18N
@@ -201,7 +211,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta3.setIcon(icon4);   
         
         if(player.valorDaMão()>21){
-            JOptionPane.showMessageDialog(this, "Voce perdeu");
+            resultados();
         }
         else{
             dealer.adicionarCarta(baralhodoJogo.comprar());
@@ -267,6 +277,20 @@ public class Blackjack_tela extends javax.swing.JFrame {
         dealer_dialogo.setForeground(Color.white);
         dealer_dialogo.setText(dealer_voz1);
         
+        //Score do jogo
+        score_player=0;
+        score_dealer=0;
+        
+        score_jogo.setForeground(Color.white);
+        score_jogo.setText("Player "+Integer.toString(score_player)+
+                "-"+Integer.toString(score_dealer)+" Dealer");
+        
+        //Fichas do jogador
+        player_fichas.setForeground(Color.white);
+        player_fichas.setText(ficha_jogo.toString());
+        
+        
+        
        
         
         
@@ -276,28 +300,40 @@ public class Blackjack_tela extends javax.swing.JFrame {
     public void resultados(){
         int pPontos = player.valorDaMão();
         int dPontos = dealer.valorDaMão();
+        String dealer_derrota ="<html>Dealer:<br>Dessa vez você realmente deu<br> "
+                + "mais sorte.Por que não outra rodada?</html>";
+        String dealer_vitoria ="<html>Dealer:<br>Acredito que esse jogo ja estava"
+                + "<br> ganho.Por que não outra rodada?</html>";
+        String dealer_empate ="<html>Dealer:<br>Hmm a sorte estava a favor dos "
+                + "<br>dois.Por que não outra rodada?</html>";
+        dealer_dialogo.setForeground(Color.white);
         
         if(pPontos>21){
             ficha_jogo.qtn_perdeu();
+            dealer_dialogo.setText(dealer_vitoria);
             JOptionPane.showMessageDialog(this, "Estouro,você perdeu");
             novo_jogo();
         }
         else if(dPontos>21){
             ficha_jogo.qtn_venceu();
+            dealer_dialogo.setText(dealer_derrota);
             JOptionPane.showMessageDialog(this, "Que sorte , o dealer estourou!");
             novo_jogo();
         }
         else if(dPontos>pPontos){
             ficha_jogo.qtn_perdeu();
+            dealer_dialogo.setText(dealer_vitoria);
             JOptionPane.showMessageDialog(this, "A mão do dealer era maior :c");
             novo_jogo();
         }
         else if(dPontos<pPontos){
             ficha_jogo.qtn_venceu();
+            dealer_dialogo.setText(dealer_derrota);
             JOptionPane.showMessageDialog(this, "Sua mão era maior, parabens!");
             novo_jogo();
        }
         else{
+            dealer_dialogo.setText(dealer_empate);
             JOptionPane.showMessageDialog(this, "Empate");
             novo_jogo();
         }
@@ -370,6 +406,8 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private javax.swing.JLabel player_carta1;
     private javax.swing.JLabel player_carta2;
     private javax.swing.JLabel player_carta3;
+    private javax.swing.JLabel player_fichas;
     private javax.swing.JLabel pontuação_tela;
+    private javax.swing.JLabel score_jogo;
     // End of variables declaration//GEN-END:variables
 }
