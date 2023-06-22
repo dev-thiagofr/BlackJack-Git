@@ -102,15 +102,22 @@ public class Load_tela extends javax.swing.JFrame {
     }//GEN-LAST:event_voltar_btnActionPerformed
 
     private void carregar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregar_btnActionPerformed
-        //carregar fichas
-        Blackjack_tela fichasCarregadas = new Blackjack_tela();
-        fichasCarregadas.setVisible(true);
-        dispose();
         try {
-            ficha_jogo.loadFichas();
+            //carregar fichas
+            Blackjack_tela fichasCarregadas = new Blackjack_tela();
+            fichasCarregadas.setVisible(true);
+            dispose();
+            try {
+                String teste2 = ficha_jogo.loadFichas();
+                fichasCarregadas.fichas_do_jogo(teste2);
+                System.out.println("caload");
+
+            } catch (FileNotFoundException ex) {
+                System.out.println("File not found!");
+            }
         } catch (FileNotFoundException ex) {
-            System.out.println("File not found!");
-        } 
+            Logger.getLogger(Load_tela.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_carregar_btnActionPerformed
 
     /**

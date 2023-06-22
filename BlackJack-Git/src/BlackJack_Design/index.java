@@ -7,6 +7,9 @@ package BlackJack_Design;
 import javax.swing.ImageIcon;
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -144,11 +147,15 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        Blackjack_tela tela2 = new Blackjack_tela();
-        tela2.setVisible(true);
-        index tela1 = new index();
-        tela1.setVisible(false);
-        dispose();
+        try {
+            Blackjack_tela tela2 = new Blackjack_tela();
+            tela2.setVisible(true);
+            index tela1 = new index();
+            tela1.setVisible(false);
+            dispose();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed

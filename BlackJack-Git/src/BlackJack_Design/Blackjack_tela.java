@@ -9,6 +9,7 @@ import BlackJack_Code.Fichas;
 import BlackJack_Code.Jogadores;
 import java.awt.Image;
 import java.awt.*;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,8 +31,9 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private Fichas ficha_jogo;
     private int score_player;
     private int score_dealer;
+    private String teste1;
 
-    public Blackjack_tela() {
+    public Blackjack_tela() throws FileNotFoundException {
 
         initComponents();
         setSize(768, 432);
@@ -42,7 +44,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         score_dealer = 0;
 
         ficha_jogo = new Fichas(200);
-
+        teste1 = ficha_jogo.loadFichas();
         inicio_jogo();
         jogo();
 
@@ -65,6 +67,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         dealer_dialogo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         score_jogo = new javax.swing.JLabel();
         player_fichas = new javax.swing.JLabel();
         dealer_virada = new javax.swing.JLabel();
@@ -112,6 +115,14 @@ public class Blackjack_tela extends javax.swing.JFrame {
         dealer_dialogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         dealer_dialogo.setText("jLabel1");
         jogo_tela.add(dealer_dialogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 350, 110));
+
+        jButton1.setText("Carregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jogo_tela.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
         score_jogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         score_jogo.setText("jLabel1");
@@ -233,7 +244,11 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player_carta3.setIcon(icon4);
 
         if (player.valorDaMão() > 21) {
-            resultados();
+            try {
+                resultados();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Blackjack_tela.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             dealer.adicionarCarta(baralhodoJogo.comprar());
             String sub_mao5 = dealer.toString().substring(6, 9);
@@ -248,8 +263,12 @@ public class Blackjack_tela extends javax.swing.JFrame {
     }//GEN-LAST:event_compra_btnMouseClicked
 
     private void parar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parar_btnActionPerformed
-        resultados();
-        //initComponents();
+        try {
+            resultados();
+            //initComponents();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Blackjack_tela.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_parar_btnActionPerformed
 
@@ -266,8 +285,21 @@ public class Blackjack_tela extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Blackjack_tela.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            //botão de carregar
+            Blackjack_tela fichasCarregadas = new Blackjack_tela();
+            fichasCarregadas.setVisible(true);
+            dispose();
+            String teste2 = ficha_jogo.loadFichas();
+            fichasCarregadas.fichas_do_jogo(teste2);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Blackjack_tela.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,7 +313,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         player = new Jogadores();
     }
 
-    public void jogo() {
+    public void jogo() throws FileNotFoundException {
         //Criação da mão inicial do dealer e do jogador
         player.adicionarCarta(baralhodoJogo.comprar());
         dealer.adicionarCarta(baralhodoJogo.comprar());
@@ -326,18 +358,30 @@ public class Blackjack_tela extends javax.swing.JFrame {
 
     }
 
-    public void fichas_do_jogo() {
+    public void fichas_do_jogo()  {
         player_fichas.setForeground(Color.white);
         player_fichas.setText(ficha_jogo.toString());
+    
+
+    }
+
+    public void fichas_do_jogo(String teste) throws FileNotFoundException  {
+        //atribui valor
+        System.out.println(teste);
+        player_fichas.setForeground(Color.white);
+        player_fichas.setText(ficha_jogo.toString());
+        player_fichas.setText(teste);
+
     }
 
     public void score_do_jogo() {
         score_jogo.setForeground(Color.white);
         score_jogo.setText("Player " + Integer.toString(score_player)
                 + "-" + Integer.toString(score_dealer) + " Dealer");
+
     }
 
-    public void resultados() {
+    public void resultados() throws FileNotFoundException {
         int pPontos = player.valorDaMão();
         int dPontos = dealer.valorDaMão();
         String dealer_derrota = "<html>Dealer:<br>Dessa vez você realmente deu<br> "
@@ -389,7 +433,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         }
     }
 
-    public void novo_jogo() {
+    public void novo_jogo() throws FileNotFoundException {
         int opcao = JOptionPane.showOptionDialog(this,
                 "Mais uma rodada?",
                 "Novo Jogo",
@@ -405,7 +449,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
             jogo();
 
         } else {
-            
+
         }
 
     }
@@ -437,7 +481,11 @@ public class Blackjack_tela extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Blackjack_tela().setVisible(true);
+            try {
+                new Blackjack_tela().setVisible(true);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Blackjack_tela.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
 
     }
@@ -448,6 +496,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private javax.swing.JLabel dealer_carta3;
     private javax.swing.JLabel dealer_dialogo;
     private javax.swing.JLabel dealer_virada;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jogo_tela;

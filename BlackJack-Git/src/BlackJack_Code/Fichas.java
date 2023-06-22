@@ -47,11 +47,12 @@ public class Fichas {
 
         String text = "";
         try {
+
             text = new String(Files.readAllBytes(Paths.get("savedFichas.txt")));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return "Sua quantidade de fichas é: " + text;
 
     }
