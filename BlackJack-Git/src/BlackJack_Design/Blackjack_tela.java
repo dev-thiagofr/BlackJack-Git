@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package BlackJack_Design;
+
 import BlackJack_Code.Baralho;
 import BlackJack_Code.Fichas;
 import BlackJack_Code.Jogadores;
@@ -11,13 +12,12 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 
-
 /**
  *
  * @author Arthu
  */
 public class Blackjack_tela extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form TelaPrincipal
      */
@@ -27,29 +27,28 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private Fichas ficha_jogo;
     private int score_player;
     private int score_dealer;
+
     public Blackjack_tela() {
-        baralhodoJogo = new Baralho();
-        baralhodoJogo.embaralhando();
-        
-        dealer = new Jogadores();
-        player = new Jogadores();
-        ficha_jogo = new Fichas(200);
+
         initComponents();
-        setSize(768,432);
+        setSize(768, 432);
         setLocationRelativeTo(null);
         setResizable(false);
-        
+
+        score_player = 0;
+        score_dealer = 0;
+
+        ficha_jogo = new Fichas(200);
+
         inicio_jogo();
         jogo();
-        
-        
+
         //teste para a carta já vir setada.
         //dealer.adicionarCarta(baralhodoJogo.comprar());
         //ImageIcon icon = new ImageIcon(getClass().getResource("/Imagens/"+dealer.toString()+".png"));
         //dealer_virada.setIcon(icon);
-        
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +59,8 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private void initComponents() {
 
         jogo_tela = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         dealer_dialogo = new javax.swing.JLabel();
         score_jogo = new javax.swing.JLabel();
         player_fichas = new javax.swing.JLabel();
@@ -86,6 +87,18 @@ public class Blackjack_tela extends javax.swing.JFrame {
         jogo_tela.setMinimumSize(new java.awt.Dimension(1024, 576));
         jogo_tela.setPreferredSize(new java.awt.Dimension(1024, 576));
         jogo_tela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/seta_back.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 70, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar_disk.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jogo_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 40));
 
         dealer_dialogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         dealer_dialogo.setText("jLabel1");
@@ -206,140 +219,158 @@ public class Blackjack_tela extends javax.swing.JFrame {
 
     private void compra_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compra_btnActionPerformed
         player.adicionarCarta(baralhodoJogo.comprar());
-        String sub_mao4= player.toString().substring(6,9);
-        ImageIcon icon4 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao4+".png"));
-        player_carta3.setIcon(icon4);   
-        
-        if(player.valorDaMão()>21){
+        String sub_mao4 = player.toString().substring(6, 9);
+        ImageIcon icon4 = new ImageIcon(getClass().getResource("/Imagens/" + sub_mao4 + ".png"));
+        player_carta3.setIcon(icon4);
+
+        if (player.valorDaMão() > 21) {
             resultados();
-        }
-        else{
+        } else {
             dealer.adicionarCarta(baralhodoJogo.comprar());
-            String sub_mao5=dealer.toString().substring(6,9);
-            ImageIcon icon5 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao5+".png"));
-            dealer_carta3.setIcon(icon5);   
+            String sub_mao5 = dealer.toString().substring(6, 9);
+            ImageIcon icon5 = new ImageIcon(getClass().getResource("/Imagens/" + sub_mao5 + ".png"));
+            dealer_carta3.setIcon(icon5);
         }
     }//GEN-LAST:event_compra_btnActionPerformed
 
     private void compra_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compra_btnMouseClicked
-        
-        
-        
+
+
     }//GEN-LAST:event_compra_btnMouseClicked
 
     private void parar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parar_btnActionPerformed
         resultados();
-        
+        //initComponents();
+
     }//GEN-LAST:event_parar_btnActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        dispose();
+        index tela_inicial = new index();
+        tela_inicial.setVisible(true);
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
      */
-    
-    public void inicio_jogo(){
+    public void inicio_jogo() {
 
+        baralhodoJogo = new Baralho();
+        baralhodoJogo.embaralhando();
+
+        dealer = new Jogadores();
+        player = new Jogadores();
     }
-    
-    public void jogo(){
+
+    public void jogo() {
         //Criação da mão inicial do dealer e do jogador
         player.adicionarCarta(baralhodoJogo.comprar());
         dealer.adicionarCarta(baralhodoJogo.comprar());
-        
+
         player.adicionarCarta(baralhodoJogo.comprar());
         dealer.adicionarCarta(baralhodoJogo.comprar());
-        
-        
-        String sub_mao1= player.toString().substring(0,3);
-        String sub_mao2= player.toString().substring(3,6);
-        String sub_mao3= dealer.toString().substring(3,6);
-        
+
+        String sub_mao1 = player.toString().substring(0, 3);
+        String sub_mao2 = player.toString().substring(3, 6);
+        String sub_mao3 = dealer.toString().substring(3, 6);
+
         //Criação das cartas respectivas nas labels
         ImageIcon icon_virada = new ImageIcon(getClass().getResource("/Imagens/CartaVirada.png"));
         dealer_carta1.setIcon(icon_virada);
-        
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao1+".png"));
+
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Imagens/" + sub_mao1 + ".png"));
         player_carta1.setIcon(icon1);
-        
-        ImageIcon icon2 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao2+".png"));
+
+        ImageIcon icon2 = new ImageIcon(getClass().getResource("/Imagens/" + sub_mao2 + ".png"));
         player_carta2.setIcon(icon2);
-        
-        ImageIcon icon3 = new ImageIcon(getClass().getResource("/Imagens/"+sub_mao3+".png"));
+
+        ImageIcon icon3 = new ImageIcon(getClass().getResource("/Imagens/" + sub_mao3 + ".png"));
         dealer_virada.setIcon(icon3);
-        
+
         ImageIcon icon4 = new ImageIcon(getClass().getResource("/Imagens/carta_vazia.png"));
         dealer_carta3.setIcon(icon4);
         player_carta3.setIcon(icon4);
-        
+
         //Falas do Dealer
-        String dealer_voz1 ="<html>Dealer:<br>Vamos apostar meu caro jogador?<br>"
+        String dealer_voz1 = "<html>Dealer:<br>Vamos apostar meu caro jogador?<br>"
                 + "Hmmm, que mão interessante você tem!</html>";
-        
+
         dealer_dialogo.setForeground(Color.white);
         dealer_dialogo.setText(dealer_voz1);
-        
+
         //Score do jogo
-        score_player=0;
-        score_dealer=0;
-        
-        score_jogo.setForeground(Color.white);
-        score_jogo.setText("Player "+Integer.toString(score_player)+
-                "-"+Integer.toString(score_dealer)+" Dealer");
-        
-        //Fichas do jogador
+        //Chama a função que muda a label do score.
+        score_do_jogo();
+
+        //Fichas do jogador.
+        fichas_do_jogo();
+
+    }
+
+    public void fichas_do_jogo() {
         player_fichas.setForeground(Color.white);
         player_fichas.setText(ficha_jogo.toString());
-        
-        
-        
-       
-        
-        
     }
-    
-    
-    public void resultados(){
+
+    public void score_do_jogo() {
+        score_jogo.setForeground(Color.white);
+        score_jogo.setText("Player " + Integer.toString(score_player)
+                + "-" + Integer.toString(score_dealer) + " Dealer");
+    }
+
+    public void resultados() {
         int pPontos = player.valorDaMão();
         int dPontos = dealer.valorDaMão();
-        String dealer_derrota ="<html>Dealer:<br>Dessa vez você realmente deu<br> "
+        String dealer_derrota = "<html>Dealer:<br>Dessa vez você realmente deu<br> "
                 + "mais sorte.Por que não outra rodada?</html>";
-        String dealer_vitoria ="<html>Dealer:<br>Acredito que esse jogo ja estava"
+        String dealer_vitoria = "<html>Dealer:<br>Acredito que esse jogo ja estava"
                 + "<br> ganho.Por que não outra rodada?</html>";
-        String dealer_empate ="<html>Dealer:<br>Hmm a sorte estava a favor dos "
+        String dealer_empate = "<html>Dealer:<br>Hmm a sorte estava a favor dos "
                 + "<br>dois.Por que não outra rodada?</html>";
         dealer_dialogo.setForeground(Color.white);
-        
-        if(pPontos>21){
+
+        if (pPontos > 21) {
             ficha_jogo.qtn_perdeu();
+            fichas_do_jogo();
             dealer_dialogo.setText(dealer_vitoria);
-            JOptionPane.showMessageDialog(this, "Estouro,você perdeu");
+            score_dealer++;
+            score_do_jogo();
+            JOptionPane.showMessageDialog(this, "Estourou! Você perdeu");
             novo_jogo();
-        }
-        else if(dPontos>21){
+        } else if (dPontos > 21) {
             ficha_jogo.qtn_venceu();
+            fichas_do_jogo();
             dealer_dialogo.setText(dealer_derrota);
+            score_player++;
+            score_do_jogo();
             JOptionPane.showMessageDialog(this, "Que sorte , o dealer estourou!");
             novo_jogo();
-        }
-        else if(dPontos>pPontos){
+        } else if (dPontos > pPontos) {
             ficha_jogo.qtn_perdeu();
+            fichas_do_jogo();
             dealer_dialogo.setText(dealer_vitoria);
+            score_dealer++;
+            score_do_jogo();
             JOptionPane.showMessageDialog(this, "A mão do dealer era maior :c");
             novo_jogo();
-        }
-        else if(dPontos<pPontos){
+        } else if (dPontos < pPontos) {
             ficha_jogo.qtn_venceu();
+            fichas_do_jogo();
             dealer_dialogo.setText(dealer_derrota);
+            score_player++;
+            score_do_jogo();
             JOptionPane.showMessageDialog(this, "Sua mão era maior, parabens!");
             novo_jogo();
-       }
-        else{
+        } else {
             dealer_dialogo.setText(dealer_empate);
+            fichas_do_jogo();
             JOptionPane.showMessageDialog(this, "Empate");
+            score_do_jogo();
             novo_jogo();
         }
     }
-    
-    public void novo_jogo(){
+
+    public void novo_jogo() {
         int opcao = JOptionPane.showOptionDialog(this,
                 "Mais uma rodada?",
                 "Novo Jogo",
@@ -348,21 +379,20 @@ public class Blackjack_tela extends javax.swing.JFrame {
                 null,
                 null,
                 null);
-        
-        if(opcao == JOptionPane.YES_OPTION){
-        dispose();
-        Blackjack_tela teste1=new Blackjack_tela();
-        teste1.setVisible(true);
+
+        if (opcao == JOptionPane.YES_OPTION) {
+
+            inicio_jogo();
+            jogo();
+
+        } else {
+            
         }
-        else{
-           
-        }
-        
-        
+
     }
-    
+
     public static void main(String args[]) {
-        
+
         //Blackjack_tela teste1 = new Blackjack_tela();
         //teste1.jogo();
         try {
@@ -390,8 +420,7 @@ public class Blackjack_tela extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new Blackjack_tela().setVisible(true);
         });
-        ;
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -400,6 +429,8 @@ public class Blackjack_tela extends javax.swing.JFrame {
     private javax.swing.JLabel dealer_carta3;
     private javax.swing.JLabel dealer_dialogo;
     private javax.swing.JLabel dealer_virada;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jogo_tela;
     private javax.swing.JLabel label_background;
     private javax.swing.JButton parar_btn;

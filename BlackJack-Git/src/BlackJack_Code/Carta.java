@@ -9,9 +9,7 @@ public class Carta {
         this.naipeCarta = naipeCarta;
     }
 
-   
-    
-    public int valorDaCarta(){
+   public int valorDaCarta(){
         if(idCarta.equals("as")){
             return 11;
         }
@@ -32,10 +30,4 @@ public class Carta {
     public String toString() {
         return idCarta + naipeCarta;
     }
-    
-
-    
-    
-    
-    
 }

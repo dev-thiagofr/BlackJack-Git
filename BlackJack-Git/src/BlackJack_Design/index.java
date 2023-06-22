@@ -5,6 +5,8 @@
 package BlackJack_Design;
 
 import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -138,7 +140,7 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitMouseClicked
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
@@ -146,6 +148,7 @@ public class index extends javax.swing.JFrame {
         tela2.setVisible(true);
         index tela1 = new index();
         tela1.setVisible(false);
+        dispose();
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed
