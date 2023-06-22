@@ -8,14 +8,22 @@ package BlackJack_Design;
  *
  * @author user
  */
+import BlackJack_Code.Fichas;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Load_tela extends javax.swing.JFrame {
+
+    private Fichas ficha_jogo;
 
     /**
      * Creates new form Load
      */
     public Load_tela() {
         initComponents();
-        setSize(768,432);
+        setSize(768, 432);
         setLocationRelativeTo(null);
         setResizable(false);
     }
@@ -94,7 +102,15 @@ public class Load_tela extends javax.swing.JFrame {
     }//GEN-LAST:event_voltar_btnActionPerformed
 
     private void carregar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregar_btnActionPerformed
-        // TODO add your handling code here:
+        //carregar fichas
+        Blackjack_tela fichasCarregadas = new Blackjack_tela();
+        fichasCarregadas.setVisible(true);
+        dispose();
+        try {
+            ficha_jogo.loadFichas();
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found!");
+        } 
     }//GEN-LAST:event_carregar_btnActionPerformed
 
     /**

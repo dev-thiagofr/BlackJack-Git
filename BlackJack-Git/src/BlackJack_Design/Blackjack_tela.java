@@ -9,6 +9,9 @@ import BlackJack_Code.Fichas;
 import BlackJack_Code.Jogadores;
 import java.awt.Image;
 import java.awt.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 
@@ -94,12 +97,17 @@ public class Blackjack_tela extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botao Salvar3.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setPreferredSize(new java.awt.Dimension(32, 32));
-        jogo_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jogo_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         dealer_dialogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         dealer_dialogo.setText("jLabel1");
@@ -250,6 +258,16 @@ public class Blackjack_tela extends javax.swing.JFrame {
         index tela_inicial = new index();
         tela_inicial.setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        try {
+            //evento botão de salvar
+            ficha_jogo.savedFichas();
+        } catch (IOException ex) {
+            Logger.getLogger(Blackjack_tela.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments

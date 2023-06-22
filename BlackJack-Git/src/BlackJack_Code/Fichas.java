@@ -3,6 +3,8 @@ package BlackJack_Code;
 import java.io.FileWriter;
 import java.io.*;
 import java.lang.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Fichas {
@@ -33,17 +35,24 @@ public class Fichas {
 
         FileWriter fw = new FileWriter("savedFichas.txt");
         PrintWriter pw = new PrintWriter(fw);
-        pw.println("Fichas: " + this.qtn_fichas);
+        pw.println(this.qtn_fichas);
+
         pw.flush();
         pw.close();
         fw.close();
 
     }
 
-    public void loadFichas() throws FileNotFoundException {
+    public String loadFichas() throws FileNotFoundException {
 
-        FileReader fr = new FileReader("savedFichas.txt");
-        Scanner sc = new Scanner("savedFichas.txt");
+        String text = "";
+        try {
+            text = new String(Files.readAllBytes(Paths.get("savedFichas.txt")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "Sua quantidade de fichas é: " + text;
 
     }
 
