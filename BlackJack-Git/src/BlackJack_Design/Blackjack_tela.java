@@ -88,17 +88,18 @@ public class Blackjack_tela extends javax.swing.JFrame {
         jogo_tela.setPreferredSize(new java.awt.Dimension(1024, 576));
         jogo_tela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/seta_back.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botao Branco2.png"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
         });
-        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 70, 70));
+        jogo_tela.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar_disk.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botao Salvar3.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jogo_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 40));
+        jLabel1.setPreferredSize(new java.awt.Dimension(32, 32));
+        jogo_tela.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         dealer_dialogo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         dealer_dialogo.setText("jLabel1");

@@ -84,7 +84,7 @@ public class BlackJack {
         
         if(pPontos>21){
             ficha_jogo.qtn_perdeu();
-            System.out.println("Você estourou , o dealer ganha");
+            System.out.println("Você estourou , o dealer ganhou!");
             System.out.println(ficha_jogo.toString());
         }
         else if(dPontos>21){
