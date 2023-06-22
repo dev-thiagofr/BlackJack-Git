@@ -161,8 +161,7 @@ public class index extends javax.swing.JFrame {
     private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed
         Load_tela load_screen = new Load_tela();
         load_screen.setVisible(true);
-        index tela1 = new index();
-        tela1.setVisible(false);
+        dispose();
     }//GEN-LAST:event_btnLoadActionPerformed
     
    

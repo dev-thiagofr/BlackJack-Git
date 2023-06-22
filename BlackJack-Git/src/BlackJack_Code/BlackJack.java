@@ -14,7 +14,7 @@ public class BlackJack {
         
         dealer = new Jogadores();
         player = new Jogadores();
-        ficha_jogo = new Fichas(200);
+        //ficha_jogo = new Fichas(200);
         
     }
     
